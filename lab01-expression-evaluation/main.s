@@ -1,18 +1,21 @@
-# Определение точки входа в программу
-.global main
+# Лабораторная работа №1.
+# Вычислить значение функции Y = (2*A^3 - 4*A^2)/B^2
+
+### Определение точки входа в программу
+.global _start
 
 ### Секция данных (константы)
 .data
-input_str:  .asciz "Input A, B (separate by SPACE): "
-output_str: .asciz "Result Y = %.6f\n"  # %.6f - 6 знаков после запятой
+input_str:  .asciz "Input A and B (separate by SPACE): "
+output_str: .asciz "Result Y = %.3f\n"  # %.3f - 3 знака после запятой
 input_fmt:  .asciz "%lld %lld"          # %lld - long long signed decimal (int64_t)
 error_str:  .asciz "Error: Division by zero!\n"
 
 ### Секция кода
 .text
 
-# Точка входа в программу (при линковке с библиотекой C)
-main:
+## Точка входа в программу
+_start:
     # Буфер для ввода A и B (subq - substract quadword)
     subq $16, %rsp  # Выделение 16 байт в стеке (8 для A и 8 для B), уменьшаем %rsp (stack pointer)
 
@@ -21,7 +24,7 @@ main:
     xor  %eax, %eax                 # Для printf с variadic args нужно обнулить %rax (accumulator register)
     call printf                     # Вызов вывода printf из C Library
 
-    # Ввод A и B
+    # Ввод чисел A и B
     leaq input_fmt(%rip), %rdi      # Аргумент 1 для scanf: Адрес строки формата в %rdi
     movq %rsp, %rsi                 # Аргумент 2 для scanf: Адрес буфера для сохранения A (вершина стека, %rsi - source index)
     leaq 8(%rsp), %rdx              # Аргумент 3 для scanf: Адрес буфера для сохранения B (смещение +8 байт, %rdx - data register)
@@ -33,7 +36,7 @@ main:
     movq 8(%rsp), %r9               # B в %r9
 
     # Проверка деления на ноль
-    testq %r9, %r9                  # Проверяем, равен ли B нулю (быстрее, чем cmpq $0, %r9)
+    testq %r9, %r9                  # Проверяем, равен ли B нулю (быстрее, чем cmpq $0)
     jz division_by_zero             # Если B == 0, переходим к обработке ошибки (jz - jump if zero)
 
     # Вычисление числителя формулы
@@ -68,16 +71,18 @@ main:
     call printf
 
     # Корректное завершение программы
-    xor %eax, %eax                  # Возвращение 0 (успешное завершение)
     addq $16, %rsp                  # Освобождаем место в стеке
-    ret                             # Возврат из функции main
+    movq $60, %rax                  # Код системного вызова для выхода (sys_exit)
+    xor %rdi, %rdi                  # Возвращение 0 (успешное завершение)
+    syscall                         # Вызов системной функции завершения
 
-# Обработка ошибки деления на ноль
+## Обработка ошибки деления на ноль
 division_by_zero:
     leaq error_str(%rip), %rdi      # Аргумент 1: Адрес строки с ошибкой
     xor %eax, %eax                  # Обнуление %rax для printf
-    call printf
+    call printf                     # Вызов printf для вывода ошибки
 
-    movq $1, %rax                   # Возвращение 1 (код ошибки)
+    movq $60, %rax                  # Код системного вызова для выхода
+    movq $1, %rdi                   # Возвращение 1 (код ошибки)
     addq $16, %rsp                  # Освобождение стека перед выходом
-    ret
+    syscall                         # Завершение процесса
