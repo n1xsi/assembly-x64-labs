@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="" align="top" alt="lab04 preview">
+  <img src="https://i.imgur.com/JwRB44s.png" align="top" alt="lab04 preview">
   <br><br>
   Лабораторная работа №4:
   
@@ -34,3 +34,7 @@ make
 # Очистить директорию от скомпилированных файлов
 make clean
 ```
+
+## 👉 Пример работы:
+
+<img src="https://i.imgur.com/7kj2FTn.png">
