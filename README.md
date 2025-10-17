@@ -3,7 +3,14 @@
 </h1>
 
 <h1 align="center">
+  
   Лабораторные работы по программированию на GAS Ассемблере x86-64
+
+  ![Assembler](https://custom-icon-badges.demolab.com/badge/x86—64-FFFFFF?logo=assmbler&label=GAS%20ASM&labelColor=2e2d2d&style=for-the-badge)
+  ![Neovim](https://img.shields.io/badge/0.7.2-FFFFFF?logo=neovim&label=NEOVIM&labelColor=2e2d2d&style=for-the-badge)
+  ![Debian WSL](https://img.shields.io/badge/WSL-FFFFFF?logo=debian&label=Debian&logoColor=A81D33&labelColor=2e2d2d&style=for-the-badge)
+  [![License](https://custom-icon-badges.demolab.com/badge/MIT-FFFFFF?logo=law&label=License&labelColor=2e2d2d&style=for-the-badge)](LICENSE)
+  
 </h1>
 
 ## 📍 О репозитории
@@ -26,8 +33,8 @@
     *   **Ассемблер:** GNU Assembler (`as`)
     *   **Компоновщик:** GNU Linker (`ld`)
     *   **Система сборки:** GNU Make
-    *   **Текстовый редактор:** NVIM
-*   **Окружение:** Debian GNU/Linux (под WSL 2)
+    *   **Текстовый редактор:** Nvim (v0.7.2)
+*   **Окружение:** Debian GNU/Linux (под WSL)
 
 
 ## 🗂️ Содержание
