@@ -9,13 +9,13 @@
   ![Assembler](https://custom-icon-badges.demolab.com/badge/x86—64-FFFFFF?logo=assmbler&label=GAS%20ASM&labelColor=2e2d2d&style=for-the-badge)
   ![Neovim](https://img.shields.io/badge/0.7.2-FFFFFF?logo=neovim&label=NEOVIM&labelColor=2e2d2d&style=for-the-badge)
   ![Debian WSL](https://img.shields.io/badge/WSL-FFFFFF?logo=debian&label=Debian&logoColor=A81D33&labelColor=2e2d2d&style=for-the-badge)
-  [![License](https://custom-icon-badges.demolab.com/badge/MIT-FFFFFF?logo=law&label=License&labelColor=2e2d2d&style=for-the-badge)](LICENSE)
+  ![License](https://custom-icon-badges.demolab.com/badge/MIT-FFFFFF?logo=law&label=License&labelColor=2e2d2d&style=for-the-badge)
   
 </h1>
 
 ## 📍 О репозитории
 
-Этот репозиторий представляет собой сборник моих лабораторных работ, выполненных в рамках курса «_Программирование на языках Ассемблера_».
+Этот репозиторий представляет собой сборник моих **лабораторных работ**, выполненных в рамках курса «_Программирование на языках Ассемблера_».
 Проект служит как практическое портфолио, демонстрирующее навыки низкоуровневого программирования.
 
 ### 🎯 Цели проекта:
